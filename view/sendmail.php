@@ -31,7 +31,7 @@ try {
     $mail->Port = 587; // TCP port to connect to
  
     //Recipients
-    $mail->setFrom('hoangnvph45665@fpt.edu.vn', 'Baby');
+    $mail->setFrom('hoangnvph45665@fpt.edu.vn', 'Reid');
     $mail->addAddress($email); // Add a recipient
     // $mail->addAddress('ellen@example.com'); // Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
@@ -46,7 +46,7 @@ try {
     $mail->isHTML(true);   // Set email format to HTML
     $mail->Subject = 'password';
     $mail->Body = $content;
-    // $mail->AltBody = 'Mã xác nhận của bạn là';
+    // $mail->AltBody = 'Mã xác nhận của bạn là ';
  
     $mail->send();
     // echo 'Mã gửi về thành công';

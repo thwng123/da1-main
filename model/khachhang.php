@@ -108,6 +108,11 @@ function updatekh1($user_id,$username,$password,$email,$phone,$tenanh) {
     // echo $sql;
 }
 
+function updatemk($email,$password){
+    $sql="UPDATE `user` SET `password` = '$password' WHERE `email`= '".$email."'";
+     pdo_execute($sql);
+}
+
 
 
 
