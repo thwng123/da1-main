@@ -136,7 +136,7 @@
 
             case 'capnhattk':
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                if (isset($_POST['btn']) && $_POST['btn']){
                   
                     $user_id = $_POST['user_id'];
                     $username = $_POST['username'];
@@ -146,39 +146,47 @@
                     $anh = $_FILES['image'];
                     $tenanh = $anh['name'];
 
-                    updatekh1($username,$password,$email,$phone,$tenanh,$user_id);
-                    move_uploaded_file($anh['tmp_name'],'../image/'.$tenanh);
+                    updatekh1($user_id,$username,$password,$email,$phone,$tenanh);
+                     move_uploaded_file($anh['tmp_name'],'../image/'.$tenanh);
                     $_SESSION['username'] = checkUser($username,$password);
 
                  
-                    echo '<script>window.location.href = "index.php?act=home"</script>';
+                    echo '<script>window.location.href = "index.php?act=capnhattk"</script>';
                 }
 
                 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                //     $user_id = $_POST['user_id'];
-                //     $username = $_POST['username'];
-                //     $password = $_POST['password'];
-                //     $email = $_POST['email'];
-                //     $phone = $_POST['phone'];
-                //     $anh = $_FILES['image'];
+                //     // Kiểm tra tồn tại của các biến POST
+                //     if(isset($_POST['user_id'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['phone'], $_FILES['image'])) {
+                //         $user_id = $_POST['user_id'];
+                //         $username = $_POST['username'];
+                //         $password = $_POST['password'];
+                //         $email = $_POST['email'];
+                //         $phone = $_POST['phone'];
+                //         $anh = $_FILES['image'];
                 
-                //     // Kiểm tra xem tệp đã được tải lên thành công không
-                //     if ($anh['error'] === UPLOAD_ERR_OK) {
-                //         $tenanh = $anh['name'];
-                //         move_uploaded_file($anh['tmp_name'], '../image/' . $tenanh);
+                //         // Kiểm tra tính hợp lệ của file được tải lên
+                //         if($anh['error'] === UPLOAD_ERR_OK) {
+                //             $tenanh = $anh['name'];
+                //             move_uploaded_file($anh['tmp_name'], '../image/' . $tenanh);
+                //         } else {
+                //             $tenanh = ""; // Nếu không tải lên được, đặt tên ảnh là rỗng
+                //         }
+                
+                //         // Thực hiện cập nhật thông tin người dùng
+                //          updatekh1($username, $password, $email, $phone, $tenanh, $user_id);
+                
+                //         // Đặt lại SESSION nếu cần thiết
+                //          $_SESSION['username'] = checkUser($username, $password);
+                
+                //         // Chuyển hướng người dùng sau khi cập nhật thành công
+                //         echo '<script>window.location.href = "index.php?act=home"</script>';
                 //     } else {
-                //         $tenanh = ""; // Nếu không tải lên được, đặt tên ảnh là rỗng
+                //         // Thông báo lỗi nếu các biến POST không tồn tại
+                //         echo "Có lỗi xảy ra khi xử lý yêu cầu.";
                 //     }
-                
-                //     // Cập nhật thông tin người dùng
-                //     updatekh1($username, $password, $email, $phone, $tenanh, $user_id);
-                
-                //     // Đặt lại SESSION nếu cần thiết
-                //     $_SESSION['username'] = checkUser($username, $password);
-                
-                //     // Chuyển hướng người dùng sau khi cập nhật thành công
-                //     echo '<script>window.location.href = "index.php?act=home"</script>';
                 // }
+                
+               
                 include 'capnhattk.php';
                 break;
 

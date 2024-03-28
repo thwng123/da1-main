@@ -35,6 +35,7 @@
             <a href="index.php?act=quenmk" class="forgot-password">Quên mật khẩu của bạn?</a>
            
             <button type="submit" class="btn">Cập nhật</button>
+            <!-- <input type="submit" value="Cập nhật" name="btn"> -->
             <!-- <a href="/" class="forgot-password">Quên mật khẩu của bạn?</a> -->
         </div>
        

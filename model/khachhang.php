@@ -87,14 +87,13 @@ function updatekh($ten,$matkhau,$email,$so,$vaitro,$tenanh,$id){
     pdo_execute($sql);
 }
 
-function updatekh1($username, $password, $email, $phone, $tenanh, $user_id) {
+function updatekh1($user_id,$username,$password,$email,$phone,$tenanh) {
     if(empty($tenanh)) {
         $sql = "UPDATE `user` SET
             `username` = '$username',
             `password` = '$password',
             `email` = '$email',
-            `phone` = '$phone',
-            `image` = NULL 
+            `phone` = '$phone'
             WHERE user_id = $user_id";
     } else {
         $sql = "UPDATE `user` SET
