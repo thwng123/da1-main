@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Nhúng thư viện bootstrap -->
+    <link rel="stylesheet" href="../lib/bootstrap.css" />
+    <script src="../lib/bootstrap.js"></script>
+    <script src="../lib/font-fontawesome-ae333ffef2.js"></script>
+    
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-sm bg-light shadow">
+      <div class="container">
+        <!-- logo -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="../image/logo/logo.png"
+            alt="Logo"
+            width="100"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <!-- Menu -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              >Xin chào Admin !!</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="#">Đăng Xuất</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--End Header-->
+    <!-- Nội dung -->
+    <div class="d-flex">
+      <!-- Side bar bên trái -->
+      <div
+        class="bg-light border-end"
+        style="width: 20%; height: calc(100vh - 2px)"
+      >
+      <div class="d-flex  justify-content-center ">
+        <ul class="nav flex-column pt-4  ">
+          <li class="nav-item">
+            <a class="nav-link d-flex justify-content-center"><img src="../image/khachhang1.jpg" class="rounded-circle" width="30px" height="30px" alt=""><h4>ADMIN</h2></a>
+          </li>
+          <li class="nav-item fw-medium">
+            <a class="nav-link">QUẢN LÝ DANH MỤC</a>
+          </li>
+          <li class="nav-item fw-medium ">
+            <a class="nav-link">QUẢN LÝ SẢN PHẨM</a>
+          </li>
+          <li class="nav-item fw-medium">
+            <a class="nav-link">QUẢN LÝ KHÁCH HÀNG</a>
+          </li>
+          <li class="nav-item fw-medium ">
+            <a class="nav-link">BÌNH LUẬN</a>
+          </li>
+          <li class="nav-item fw-medium">
+            <a class="nav-link">THỐNG KÊ</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <!-- Nội dung chính -->
+      <div class="container pt-4" style="width: 80%">
+        <h1 class="d-flex justify-content-center ">Danh Mục</h1>
+        <div >
+          <button class="btn btn-success"><i class="fa-solid fa-plus"></i>Tạo mới</button>
+        </div>
+        <table class="table table-hover table-bordered  mt-3 table-striped container ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th >Họ Tên</th>
+              <th>Tương tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+                <td>PH2200</td>
+                <td>Phạm Quang Thọ</td>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i>Sửa</button>
+                <button class="btn btn-sm btn-danger " data-bs-toggle="modal" data-bs-target="#myModal">
+                  <i class="fa-solid fa-trash"></i> Xóa
+              </button>
+              <div class="modal" role="dialog" id="myModal">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Xác Nhận Xóa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Bạn có chắc chắn muốn xóa bản ghi ?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary ">Hủy</button>
+                        <button type="button" class="btn btn-danger">Xóa</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td>PH2200</td>
+                <td>Phạm Quang Thọ</td>
+
+              </td>
+              <td>
+                <button class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i>Sửa</button>
+                <button class="btn btn-sm btn-danger " data-bs-toggle="modal" data-bs-target="#myModal">
+                  <i class="fa-solid fa-trash"></i> Xóa
+              </button>
+              <div class="modal" role="dialog" id="myModal">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Xác Nhận Xóa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Bạn có chắc chắn muốn xóa bản ghi ?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary ">Hủy</button>
+                        <button type="button" class="btn btn-danger">Xóa</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td>PH2200</td>
+                <td>Phạm Quang Thọ</td>
+
+              </td>
+              <td>
+                <button class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i>Sửa</button>
+                <button class="btn btn-sm btn-danger " data-bs-toggle="modal" data-bs-target="#myModal">
+                  <i class="fa-solid fa-trash"></i> Xóa
+              </button>
+              <div class="modal" role="dialog" id="myModal">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Xác Nhận Xóa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Bạn có chắc chắn muốn xóa bản ghi ?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary ">Hủy</button>
+                        <button type="button" class="btn btn-danger">Xóa</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- End noi dung chinh-->
+    <!--Footer-->
+   
+    <!--End Footer-->
+  </body>
+</html>
