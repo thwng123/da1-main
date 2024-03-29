@@ -2,6 +2,7 @@
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
+include '../model/thongke.php';
 include './header.php';
 include '../model/khachhang.php';
 if(isset($_GET['act'])){
@@ -260,6 +261,12 @@ if(isset($_GET['act'])){
        
             $listkh=listkh();
              include './khachhang/list.php';
+              // thong ke
+             case 'listtk':
+             
+              $listtk = thong_ke_hang_hoa();
+              include './thongke/list.php';
+              break;
                 
 
                
