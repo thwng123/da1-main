@@ -721,6 +721,105 @@ input[type="password"], input[type="email"] {
   
 } 
 
+.table-cart table tr td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+.table-cart table tr td.pro-price {
+    min-width: 159px;
+    color: #ff6a28;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.table-cart table tr td.product_name {
+    min-width: 260px;
+    color: #747474;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.table-cart table tr td.product_thumb {
+    min-width: 159px;
+
+}
+.table-cart table tr td.product_quantity input {
+    width: 60px;
+    height: 40px;
+    padding: 0 5px 0 10px;
+    background: none;
+    border: 1px solid #ddd;
+
+}
+
+.table-cart table tr td a button {
+    width: 60px;
+    height: 40px;
+    /* padding: 0 5px 0 10px; */
+    background: white;
+    border: 1px solid #fff;
+    min-width: 125px;
+
+}
+
+.table-cart table tr th {
+    border-bottom: 3px solid #ff6a28;
+    /* border-right: 1px solid #ddd; */
+    color: #747474;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px;
+    text-align: center;
+}
+
+tr td.capnhat input:hover {
+    background: #ff6a28;
+}
+
+.table-cart .capnhatcart buttona:hover {
+    background: #ff6a28;
+  
+    
+}
+
+.table-cart .total_cart h3 {
+    color: #ffffff;
+    line-height: 37px;
+    padding: 5px 15px;
+    background: #242424;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.table-cart .total_cart {
+    width: 500px;
+}
+
+.table-cart .coupon_inner {
+    padding: 10px 20px 25px;
+}
+
+.table-cart .coupon_inner .cart_subtotal {
+    display: flex;
+    justify-content: space-between;
+
+}
+.table-cart .coupon_inner .cart_subtotal p {
+    color: #242424;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+
+
 
 
 

@@ -27,41 +27,45 @@
             </div>
             <span>$<?php echo $onesp['price']?></span>
             <p><?php echo $onesp['description']?></p>
-            <div class="product-color">
-                <h3>Color</h3>
-                <select name="color_name" id="">
-                    <?php
-                        foreach($loadColor as $key){
-                            
-                            
-                    ?>
-                        <option value="<?php echo $key['color_id']?>"><?php echo $key['color_name']?></option>
-                    <?php
-                        }
-                    ?>
-                </select>
-            </div>
+                <div class="product-color">
+                    <h3>Color</h3>
+                    <select name="color_name" id="">
+                        <?php
+                            foreach($loadColor as $key){
+                                
+                                
+                        ?>
+                            <option value="<?php echo $key['color_id']?>"><?php echo $key['color_name']?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
 
-            <div class="product-size">
-                <h3>Size</h3>
-                <select name="size_name" id="">
-                <?php
-                        foreach($loadSize as $key){
-                            
-                            
-                    ?>
-                        <option value="<?php echo $key['size_id']?>"><?php echo $key['size_name']?></option>
+                <div class="product-size">
+                    <h3>Size</h3>
+                    <select name="size_name" id="">
                     <?php
-                        }
-                    ?>
-                </select>
-            </div>
+                            foreach($loadSize as $key){
+                                
+                                
+                        ?>
+                            <option value="<?php echo $key['size_id']?>"><?php echo $key['size_name']?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
 
-            <div class="product-quantity">
-                <h3>Số lượng</h3>
-                <input type="number" min="1" max="100" value="1" >
-            </div>
-            <button type="submit">THÊM VÀO GIỎ HÀNG</button>
+                <!-- <div class="product-quantity">
+                    <h3>Số lượng</h3>
+                    <input type="number" name="soluong" min="1" max="100" value="1" >
+                </div> -->
+            <form action="index.php?act=addcart&product_id=<?= $onesp['product_id']?>" method="post">
+                <button type="submit" name="btn_addcart">THÊM VÀO GIỎ HÀNG</button>
+               
+            </form>
+            
             <div class="box-spct-cm">
                 <ul>
                     <li>

@@ -78,7 +78,7 @@
             ?>
                 
                 <a href="index.php?act=dangnhap"> <i class="fa-solid fa-user" style="font-size: 20px; color:black;  "></i></a> 
-                <a href="#" class="cart"><i class="fa-solid fa-cart-shopping" style=" font-size: 20px;color:black;margin-right:15px "></i></a> 
+                <a href="index.php?act=cart" class="cart"><i class="fa-solid fa-cart-shopping" style=" font-size: 20px;color:black;margin-right:15px "></i></a> 
             <?php
                 }
             ?>

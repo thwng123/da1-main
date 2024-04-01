@@ -4,6 +4,7 @@
     include "../model/sanpham.php";
     include "../model/danhmuc.php";
     include "../model/khachhang.php";
+    include "../model/cart.php";
     include 'header.php';
     include '../global.php';
 
@@ -27,13 +28,64 @@
                     $dstop4 = load_all_top4();
                     $loadColor = load_color();
                     $loadSize = load_size();
+
+                    // if(isset($_POST['btn_addcart']) ){
+                    //     $user_id = $_SESSION['username']['id'];
+                    //     // echo $user_id;
+                    //     $product_id = $_GET['product_id'];
+                    //     // add_cart($user_id, $product_id);
+                    //     // echo '<script>window.location.href = "index.php?act=cart"</script>';
+
+                    // }
+                   
                     include 'chitietsanpham.php';
                 }else{
+                    
                     include 'home.php';
                 }
+
+                
+                
+                break;
+
+            case 'addcart':
+                if(isset($_GET['product_id'])){
+                    $product_id = $_GET['product_id'];
+                  
+                    $user_id = $_SESSION['username']['user_id'];
+                    // if(!empty($product_id)){
+                    //     add_cart($user_id, $product_id);
+                    // }
+                     add_cart($user_id, $product_id,$quantity);
+                }
+
+                
+                $user_id = $_SESSION['username']['user_id'];
+               
+                $list_cart = list_cart($user_id);
+                
+                
+                
+                include 'cart.php';
+                break;
+
+                
                 
                 break;
            
+            // case 'add_cart':
+            //     if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //          $product_id = loadone_sanpham($product_id);
+            //         // $product_id = 
+            //         $user_id = $_SESSION['username']['id'];
+            //         add_cart($user_id, $product_id);
+
+                    
+            //     }
+            //     include 'chitietsanpham.php';
+            //     break;
+
+
             case 'nam':
                 $spnewnam = load_all_homenam();
                 include 'nam.php';
@@ -42,6 +94,75 @@
                 $spnewnu = load_all_homenu();
                 include 'nu.php';
                 break;
+
+            case 'cart':
+                $product_id = $_GET['product_id'];
+                $user_id = $_SESSION['username']['user_id'];
+                
+                  $list_cart = list_cart($user_id, $product_id);
+               
+                    
+
+                
+                
+                include 'cart.php';
+                break;
+            
+            case 'del_cart':
+                if(isset($_GET['cart_id']) && ($_GET['cart_id']>0)){
+                 
+                    $cart_id =$_GET['cart_id'];
+                    del_cart($cart_id);
+                    echo '<script>window.location.href = "index.php?act=cart"</script>';
+
+                }
+                $rows = list_cart("",0);
+
+                // include 'cart.php';
+                break;
+                
+            
+            case 'cartInc':
+                
+                 
+               
+             
+                
+                
+                    //   cartInc($cart_id,$quantity);
+                    //   echo '<script>window.location.href = "index.php?act=cart"</script>';
+                    //   $_SESSION['cart'] = listCart($user_id);
+
+                    //   print_r($_SESSION['cart']);
+
+           
+               
+               
+
+                
+               
+
+                include 'cart.php';
+                break;
+                
+            
+            case 'capnhatcart':
+                if(isset($_POST['capnhatsoluong'])){
+                
+                
+                    for($i = 0; $i < count($_POST['product_id']); $i++){
+                        $product_id = $_POST['product_id'][$i];
+                        $quantity =  $_POST['soluong'][$i];
+                        capnhatCart($product_id, $quantity); // Thay $soluong bằng $quantity
+                        echo '<script>window.location.href = "index.php?act=cart"</script>';
+
+                    }
+                    
+                }
+
+                include 'cart.php';
+                break;
+                
 
             // case 'gioithieu':
                
