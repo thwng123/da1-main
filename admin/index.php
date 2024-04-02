@@ -1,10 +1,16 @@
 <?php
+
+session_start();
+if(isset($_SESSION['username']['role']) &&  $_SESSION['username']['role'] == 0){
+  
+
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
 include '../model/thongke.php';
 include './header.php';
 include '../model/khachhang.php';
+
 if(isset($_GET['act'])){
     $act=$_GET['act'];
    switch ($act) {
@@ -172,6 +178,8 @@ if(isset($_GET['act'])){
               $listsp=listsp($kyw,$iddm);
               $listdm=listdm();
                include './sanpham/list.php';
+               break;
+
                case 'listkh':
                
                 $listkh=listkh();
@@ -278,6 +286,6 @@ if(isset($_GET['act'])){
 }
 include './home.php';
 include './footer.php';
-
+}
 
 ?>

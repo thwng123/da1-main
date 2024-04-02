@@ -65,10 +65,20 @@
                       
                     </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=cart">Giỏ hàng</a></li>
                             <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
                             <li><a class="dropdown-item" href="index.php?act=capnhattk">Tài khoản của tôi</a></li>
+                            <?php
+                                if($_SESSION['username']['role'] == 0){
+                                
+                                
+                            ?>
+                                <li><a class="dropdown-item" href="http://localhost/da1-main/admin/index.php">Đăng nhập vào admin</a></li>
+                            <?php
+                                }
+                            ?>
                             <li><a class="dropdown-item" href="index.php?act=thoat">Đăng xuất</a></li>
+
                         </ul>
                 </div>
             <?php

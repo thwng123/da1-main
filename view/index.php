@@ -53,13 +53,13 @@
                     $product_id = $_GET['product_id'];
                   
                     $user_id = $_SESSION['username']['user_id'];
-                    // if(!empty($product_id)){
-                    //     add_cart($user_id, $product_id);
-                    // }
-                     add_cart($user_id, $product_id,$quantity);
+                  
+                    // add_cart($user_id, $product_id, $quantity);
+                    add_cart($user_id, $product_id, $quantity,$status);
+                    //  echo "thuong";
                 }
 
-                
+
                 $user_id = $_SESSION['username']['user_id'];
                
                 $list_cart = list_cart($user_id);
@@ -122,27 +122,9 @@
                 break;
                 
             
-            case 'cartInc':
+            case 'checkout':
                 
-                 
-               
-             
-                
-                
-                    //   cartInc($cart_id,$quantity);
-                    //   echo '<script>window.location.href = "index.php?act=cart"</script>';
-                    //   $_SESSION['cart'] = listCart($user_id);
-
-                    //   print_r($_SESSION['cart']);
-
-           
-               
-               
-
-                
-               
-
-                include 'cart.php';
+                include 'checkout.php';
                 break;
                 
             

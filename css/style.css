@@ -819,8 +819,134 @@ tr td.capnhat input:hover {
 
 }
 
+.checkout_form {
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 56px;
+}
+.checkout_form h3 {
+    font-size: 16px;
+    line-height: 30px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: #242424;
+    font-weight: 600;
+}
+
+.checkout_form .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
+
+.checkout_form input {
+    border: 1px solid #ddd;
+    background: none;
+    height: 40px;
+    width: 100%;
+    padding: 0 20px;
+    color: #747474;
+}
+
+.checkout_form label {
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.checkout_form span {
+    color: #ff6a28;
+}
+
+.checkout_form .col-lg-6 {
+    width: 50%;
+}
+
+   
+.mb {
+    margin-bottom: 20px;
+}
+
+.order_table table {
+    width: 100%;
+}
+.table-responsive table thead {
+    background: #f2f2f2;
+}
 
 
+
+.table-responsive table thead tr th {
+    text-align: center;
+}
+
+.order_table table thead tr th {
+    min-width: 50%;
+    text-align: center;
+    color: #747474;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.table-responsive table tbody tr td {
+    border-right: 1px solid #ddd;
+    color: #242424;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 14px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.order_table table tbody tr td {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order_table table tfoot tr td {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order_table table tfoot tr th {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #747474;
+}
+
+.order_button input {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: #ff6a28;
+    font-weight: 600;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    margin-bottom: 0;
+    width: 200px;
+    margin-top: 10px;
+    border: none;
+}
+.order_button input:hover {
+  
+    background: #242424;
+    
+}
 
 
 

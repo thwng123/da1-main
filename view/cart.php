@@ -27,6 +27,7 @@
 
         
                 <?php
+                $total = 0;
                 foreach($list_cart as $lc){
 
                     $total = $lc['quantity'] * $lc['price'];
@@ -74,7 +75,10 @@
                             Tổng giỏ hàng: $<?php echo $total_bill?>
                         </div>
                         <div class="checkout">
-                        <input type="button" style="font-size:14px;background: #ff6a28;color: #ffffff;border: 0;padding: 10px 15px;font-weight: 600;margin-top:15px"  value="Thanh toán"></td>
+                        <a href="index.php?act=checkout">
+                            <input type="button" style="font-size:14px;background: #ff6a28;color: #ffffff;border: 0;padding: 10px 15px;font-weight: 600;margin-top:15px"  value="Thanh toán">
+                        </a>
+                        
                         </div>
                     </td>
                     
