@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION['username'])){
+        echo '<script>window.location.href = "index.php?act=dangnhap"</script>';
+        die;
+    }
+?>
 <div class="box-spct">
     <ul>
         <li><a href="index.php?act=home">Trang chủ </a></li>

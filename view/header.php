@@ -66,7 +66,7 @@
                     </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="index.php?act=cart">Giỏ hàng</a></li>
-                            <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=dathangthanhcong">Đơn hàng</a></li>
                             <li><a class="dropdown-item" href="index.php?act=capnhattk">Tài khoản của tôi</a></li>
                             <?php
                                 if($_SESSION['username']['role'] == 0){

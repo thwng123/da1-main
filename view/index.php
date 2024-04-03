@@ -142,6 +142,7 @@
                     
 
                     $orderId = insert_get_last_id($user_id,$user_name ,$user_email ,$user_phone ,$user_address ,$total_bill,$status_delivery,$status_payment);
+                    // $_SESSION['orderId'] = $orderId;
                     
                     
                     foreach($_SESSION['cart'] as $productID => $lc){
@@ -172,12 +173,11 @@
             case 'dathangthanhcong':
                
                 $_SESSION['bill1'] = showAll($user_id);
-                // // echo '<pre>';
-                // // print_r($_SESSION['bill1']);
-                // // // unset ($_SESSION['bill1']);
-                // // echo '</pre>';
-                // // die;
-                $_SESSION['bill2'] = showAll2($user_id);
+                // echo '<pre>';
+                // print_r($_SESSION['bill1']);
+                // echo '</pre>';
+                // die;
+                 $_SESSION['bill2'] = showAll2($user_id);
                 // echo '<pre>';
                 // print_r($_SESSION['bill2']);
                 // echo '</pre>';
