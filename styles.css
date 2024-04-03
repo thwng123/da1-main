@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .comments-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .comments-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .comment-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+  }
+  
+  .comment-form-container h3 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  textarea {
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

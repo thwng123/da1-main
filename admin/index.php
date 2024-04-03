@@ -1,16 +1,10 @@
 <?php
-
-session_start();
-if(isset($_SESSION['username']['role']) &&  $_SESSION['username']['role'] == 0){
-  
-
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
-include '../model/thongke.php';
 include './header.php';
 include '../model/khachhang.php';
-
+include '../model/binhluan.php';
 if(isset($_GET['act'])){
     $act=$_GET['act'];
    switch ($act) {
@@ -20,11 +14,19 @@ if(isset($_GET['act'])){
         # code...
         break;
         case 'adddm':
+          $erors=[];
          
             if(isset($_POST['btnsumbit'])){
                
               $ten=$_POST['ten'];
+              if(empty($ten)){
+                $erors['username']="Tên Không được để trống";
+
+              }else{
+
+              
               adddm($ten);
+              }
             }
             include './danhmuc/add.php';
             # code...
@@ -93,15 +95,50 @@ if(isset($_GET['act'])){
                     $mota=$_POST['mota'];
                     $danhmuc=$_POST['danhmuc'];
                     $tenanh=$anh['name'];
+                    $ext = pathinfo($tenanh,PATHINFO_EXTENSION);
+                    $ext_img = ['png','jpg','gif','jpag','webp'];
+                    $erors=[];
+                    if(empty($ten)){
+                      $erors['ten']="Tên không được để trống";
+
+                    }
+                    if(empty($gia)){
+                      $erors['gia']="Gía không được để trống";
+
+                    }else if($gia<=0){
+                      $erors['gia']="Gía  phải lớn hơn 0";
+
+                    }
+                  
+                    if(!in_array($ext,$ext_img)){        
+                      $erors['anh'] = "file not valid";
+                  }else if($anh['size']> 50*1024){
+                      $erors['anh'] = " Flie phải <= 50KB";
+                  }
+                    if(empty($soluong)){
+                      $erors['soluong']="Số lượng không được để trống";
+
+                    }else if($soluong<=0){
+                      $erors['soluong']="Số lượng phải lớn hơn 0";
+
+                    }
+                    if(empty($mota)){
+                      $erors['mota']="Mô tả không được để trống";
+
+                    }
+                    if(empty($erors)){
+                      addsp($ten,$tenanh,$gia,$soluong,$mota,$danhmuc);
+                   
+                      move_uploaded_file($anh['tmp_name'], '../image/' .$tenanh);
+
+                    }
                
                    
                    
                    
                   
                    
-                    addsp($ten,$tenanh,$gia,$soluong,$mota,$danhmuc);
-                   
-                      move_uploaded_file($anh['tmp_name'], '../image/' .$tenanh);
+                    
                   
                    
                   
@@ -178,8 +215,6 @@ if(isset($_GET['act'])){
               $listsp=listsp($kyw,$iddm);
               $listdm=listdm();
                include './sanpham/list.php';
-               break;
-
                case 'listkh':
                
                 $listkh=listkh();
@@ -197,7 +232,33 @@ if(isset($_GET['act'])){
                   $so=$_POST['so'];
                   $vaitro=$_POST['vaitro'];
                   $tenanh=$anh['name'];
+                  $erors=[];
+                  if(empty($ten)){
+                    $erors['ten']="Tên không được để trống";
+
+                  }
+                  if(empty($matkhau)){
+                    $erors['matkhau']="Mật khẩu không được để trống";
+
+                  }
+                  if(empty($email)){
+                    $erors['email']="Email không được để trống";
+
+                  }
+                  else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    $errors['email'] = "Email không hợp lệ.";
+                  }
+                  if(empty($so)){
+                    $erors['so']="Số điện thoại không được để trống";
+
+                  }
+                  if(empty($erors)){
+
+                  
                   addkh($ten,$matkhau,$email,$so,$vaitro,$tenanh);
+                  move_uploaded_file($anh['tmp_name'], '../image/' .$tenanh);
+                  $thongbao = "Thêm thành công";
+                  }
 
              
                  
@@ -207,7 +268,7 @@ if(isset($_GET['act'])){
                  
                 
                  
-                    move_uploaded_file($anh['tmp_name'], '../image/' .$tenanh);
+                  
                 
                  
                 
@@ -269,12 +330,25 @@ if(isset($_GET['act'])){
        
             $listkh=listkh();
              include './khachhang/list.php';
-              // thong ke
-             case 'listtk':
-             
-              $listtk = thong_ke_hang_hoa();
-              include './thongke/list.php';
+             case 'listbl':
+              $listbl=listbladmin();
+              include './binhluan/list.php';
               break;
+              case 'xoabl':
+       
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                  deletebl();
+                 
+                 
+                 
+                  
+               }
+              
+            
+            $listbl=listbladmin();
+             
+  
+              include './binhluan/list.php';
                 
 
                
@@ -286,6 +360,6 @@ if(isset($_GET['act'])){
 }
 include './home.php';
 include './footer.php';
-}
+
 
 ?>

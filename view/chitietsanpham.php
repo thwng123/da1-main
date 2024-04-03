@@ -83,6 +83,21 @@
     
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){         
+        $("#binhluan").load("../view/binhluan/binhluan.php", {idpro: <?=$product_id?>});             
+    });
+</script>
+    <div class="box-spcl">
+        <h2>Bình luận</h2>
+               
+        <div class="row " id="binhluan">
+                
+        </div>
+    </div>
+            
+
 <div class="box-spcl">
     
     <h2>Sản phẩm liên quan</h2>

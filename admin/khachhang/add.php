@@ -12,14 +12,26 @@
                   <div class="mt-3">
                     <span class="form-label">Tên Khách hàng</span>
                     <input type="text" class="form-control" name="ten" />
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['ten'])){
+                      echo $erors['ten'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Mật khẩu</span>
                     <input type="password" class="form-control" name="matkhau"/>
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['matkhau'])){
+                      echo $erors['matkhau'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Email</span>
                     <input type="email" class="form-control" name="email" />
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['email'])){
+                      echo $erors['email'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Anh khách hàng</span>
@@ -31,6 +43,10 @@
                   
 
                     <input type="text" class="form-control" name="so" />
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['so'])){
+                      echo $erors['so'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Vai trò</span>

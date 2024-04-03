@@ -12,25 +12,47 @@
                   <div class="mt-3">
                     <span class="form-label">Tên sản phẩm</span>
                     <input type="text" class="form-control" name="ten" />
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['ten'])){
+                      echo $erors['ten'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Gía</span>
                     <input type="text" class="form-control" name="gia"/>
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['gia'])){
+                      echo $erors['gia'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Số lượng</span>
                     <input type="text" class="form-control" name="soluong" />
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['soluong'])){
+                      echo $erors['soluong'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Anh sản phẩm</span>
                     
                     <input type="file" class="form-control" name="anh"/>
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['anh'])){
+                      echo $erors['anh'];
+
+                    } ?></div>
+                
+                 
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Mô tả</span><br>
                   
 
                    <textarea name="mota" id="myTextarea" rows="7" cols="70" ></textarea>
+                   <div style="color: red;font-weight:500"><?php if(isset($erors['mota'])){
+                      echo $erors['mota'];
+
+                    } ?></div>
                   </div>
                   <div class="mt-3">
                     <span class="form-label">Danh mục</span>
@@ -49,6 +71,12 @@
                   ?>
                    </select>
                   </div>
+                  <?php
+                  if(isset($thongbao)){
+                    echo $thongbao;
+                  }
+                  
+                  ?>
                   
                   
                   
@@ -62,6 +90,7 @@
             </div>
           </div>
         </div>
+
         <script>
     // tinymce.init({
     //     selector: '#myTextarea'

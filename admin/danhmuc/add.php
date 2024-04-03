@@ -10,6 +10,10 @@
                   <div class="mt-3">
                     <span class="form-label">Tên danh mục</span>
                     <input type="text" class="form-control" name="ten"/>
+                    <div style="color: red;font-weight:500"><?php if(isset($erors['username'])){
+                      echo $erors['username'];
+
+                    } ?></div>
                   </div>
                   
                  
