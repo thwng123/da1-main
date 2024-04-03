@@ -143,6 +143,12 @@
         $list = pdo_query($sql);
         return $list;
     }
+
+    function cartExsit($product_id){
+        $sql = "SELECT * FROM `cart`  where `product_id` = '$product_id'";
+        return  pdo_query_value($sql) > 0;
+    }
     
+
   
 ?>

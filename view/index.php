@@ -49,13 +49,18 @@
                 break;
 
             case 'addcart':
+                $user_id = $_SESSION['username']['user_id'];
                 if(isset($_GET['product_id'])){
                     $product_id = $_GET['product_id'];
                   
-                    $user_id = $_SESSION['username']['user_id'];
+                    if(!cartExsit($product_id)){
+                        add_cart($user_id, $product_id, $quantity,$status);
+                    }else {
+                        echo "<script> alert('Sản phẩm đã tồn tại')</script>";
+                    }
                   
                     // add_cart($user_id, $product_id, $quantity);
-                    add_cart($user_id, $product_id, $quantity,$status);
+                    // add_cart($user_id, $product_id, $quantity,$status);
                     //  echo "thuong";
                 }
 
@@ -96,7 +101,7 @@
                 break;
 
             case 'cart':
-                $product_id = $_GET['product_id'];
+                // $product_id = $_GET['product_id'];
                 $user_id = $_SESSION['username']['user_id'];
                 
                 $_SESSION['cart']  = list_cart($user_id, $product_id);
@@ -113,7 +118,7 @@
                  
                     $cart_id =$_GET['cart_id'];
                     del_cart($cart_id);
-                    echo '<script>window.location.href = "index.php?act=cart"</script>';
+                    echo '<script>window.location.href = "index.php?act=cart"</>';
 
                 }
                 $rows = list_cart("",0);
@@ -124,13 +129,10 @@
             
             case 'checkout':
                
-                 $_SESSION['cart']  = list_cart($user_id, $product_id);
+                 $_SESSION['cart']  = list_cart($user_id);
               
                 if(!empty($_POST) && !empty($_SESSION['cart'])){
                    
-                   
-                  
-
                     $user_name = $_POST['user_name'];
                     $user_email = $_POST['user_email'];
                     $user_address = $_POST['user_address'];
@@ -177,7 +179,7 @@
                 // print_r($_SESSION['bill1']);
                 // echo '</pre>';
                 // die;
-                 $_SESSION['bill2'] = showAll2($user_id);
+                $_SESSION['bill2'] = showAll2($user_id);
                 // echo '<pre>';
                 // print_r($_SESSION['bill2']);
                 // echo '</pre>';

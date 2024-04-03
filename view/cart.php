@@ -34,6 +34,7 @@
         
                 <?php
                 $total = 0;
+                $total_bill = 0;
                 foreach( $_SESSION['cart']  as $lc){
 
                     $total = $lc['quantity'] * $lc['price'];

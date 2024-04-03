@@ -19,6 +19,8 @@
                 <th>Tổng cộng</th></th>
             </tr>
             <?php
+                    $total = 0;
+                    $total_bill = 0;
                 foreach($_SESSION['bill2'] as $item){
                     $total = $item['quantity'] * $item['price'];
                     $total_bill += $total;

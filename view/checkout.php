@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-12 mb-20">
                         <label>Địa chỉ<span>*</span></label>
-                        <input type="text" name="user_address" value="<?= $_SESSION['username']['address']?>" required>    
+                        <input type="text" name="user_address" value="" required>    
                     </div>
                     <div class="col-12 mb-20">
                         <label>Email<span>*</span></label>
