@@ -51,6 +51,9 @@
             case 'addcart':
                 $user_id = $_SESSION['username']['user_id'];
                 if(isset($_GET['product_id'])){
+                    $quantity = 0;
+                    $status = 0;
+
                     $product_id = $_GET['product_id'];
                   
                     if(!cartExsit($product_id)){
@@ -104,7 +107,7 @@
                 // $product_id = $_GET['product_id'];
                 $user_id = $_SESSION['username']['user_id'];
                 
-                $_SESSION['cart']  = list_cart($user_id, $product_id);
+                $_SESSION['cart']  = list_cart($user_id);
                
                     
 
@@ -115,7 +118,7 @@
             
             case 'del_cart':
                 if(isset($_GET['cart_id']) && ($_GET['cart_id']>0)){
-                 
+                    
                     $cart_id =$_GET['cart_id'];
                     del_cart($cart_id);
                     echo '<script>window.location.href = "index.php?act=cart"</>';
