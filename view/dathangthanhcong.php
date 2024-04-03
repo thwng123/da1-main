@@ -1,43 +1,67 @@
-<div class="order_success">
-    <h1>Bạn đã đặt hàng thành công</h1>
+<hr>
+<div class="box-spct">
+    <ul>
+        <li><a href="index.php?act=home">Trang chủ </a></li>
+        <li> / </li>
+        <li>Lịch sử đơn hàng</li>
+    </ul>
+
 </div>
 
-<div class="box-bill" style="border:1px solid #747474">
+<div class="order_success">
+    
+</div>
+
+<div class="box-bill" >
     <div class="bill_detail">
-    <h3>Đơn hàng của bạn</h3>
-    <div class="info_bill" style="padding:20px">
-        <div>Mã đơn hàng: <strong><?php echo $_SESSION['bill1']['order_id']?></strong>  </div>
-        <div>Username đặt hàng:  <strong><?php echo $_SESSION['bill1']['user_name']?></strong></div>
-        <div>Địa chỉ: <strong><?php echo $_SESSION['bill1']['user_address']?></strong> </div>
-        <div>Email người đặt: <strong><?php echo $_SESSION['bill1']['user_email']?></strong> </div>
-        <div>Số điện thoại: <strong><?php echo $_SESSION['bill1']['user_phone']?></strong> </div>
-    </div>
-    <div class="table_order">
-        <table border="1">
-            <tr>
-                <th>Sản phẩm</th>
-                <th>Tổng cộng</th></th>
-            </tr>
-            <?php
-                    $total = 0;
-                    $total_bill = 0;
-                foreach($_SESSION['bill2'] as $item){
-                    $total = $item['quantity'] * $item['price'];
-                    $total_bill += $total;
-                
-            ?>
+        <h3>Đơn hàng của bạn</h3>
+        <table style="width:1100px" border="1">
+            <thead>
                 <tr>
-                    <td> <?= $item['product_name']?> <strong> × <?php echo $item['quantity']?></strong></td>
-                    <td>$<?= $total?></td>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Receiver</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th></th>
                 </tr>
-            <?php
+            </thead>
+            <tbody>
+               <?php
+                $listOrder = showAll($user_id);
+                foreach($listOrder as $item){
+                    extract($item);
+                
+               
+
+                // ($status_delivery === 0) ? $tinh_trang = "Đã xử lý" : $tinh_trang = "Đang xử lý";
+                $tinh_trang = ($status_delivery === 0) ?  "Đã xử lý" :  "Đang xử lý";
+               ?>
+
+                    <tr>
+                        <td><?=$id?></td>
+                        <td><?=$created_at?></td>
+                        <td><?=$user_name?></td>
+                        <td>$<?=$total_bill?></td>
+                        <td><?=$tinh_trang?></td>
+                        <td>
+                            <a href="index.php?act=orderDetail&id=<?=$id?>"> Xem chi tiết</a>   
+                        </td>
+                    </tr>
+
+               <?php
                 }
-            ?>
-                <tr class="order_total">
-                        <th>Order Total</th>
-                        <td><strong name="total_bill" >$<?php echo $total_bill?></strong></td>
-                </tr>
+               ?>
+            </tbody>
+            
+
+            <tr>
+
+
+            </tr>
+            
         </table>
+        
     </div>
    
     </div>

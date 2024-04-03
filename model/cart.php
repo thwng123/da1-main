@@ -134,21 +134,38 @@
     }
 
     function showAll($user_id){
-        $sql = "SELECT * FROM `order_items` JOIN orders ON order_items.order_id = orders.id JOIN products ON order_items.product_id = products.product_id where `user_id` = '$user_id'"  ;
-        $list = pdo_query_one($sql);
-        return $list;
-    }
-
-    function showAll2($user_id){
-        $sql = "SELECT * FROM `order_items` JOIN orders ON order_items.order_id = orders.id JOIN products ON order_items.product_id = products.product_id where `user_id` = '$user_id'";
+        $sql = "SELECT `id`, `user_id`, `user_name`, `user_email`, `user_phone`, `user_address`, `total_bill`, `status_delivery`, `status_payment`, `created_at`, `updated_at` FROM `orders` WHERE `user_id` = '$user_id'"  ;
         $list = pdo_query($sql);
         return $list;
     }
 
-    function cartExsit($product_id){
-        $sql = "SELECT * FROM `cart`  where `product_id` = '$product_id'";
+    
+
+    function cartExsit($product_id, $user_id){
+        $sql = "SELECT * FROM `cart`  where `product_id` = '$product_id' and `user_id` = '$user_id'";
         return  pdo_query_value($sql) > 0;
     }
+
+    function show_detail_order($order_id){
+        $sql = "SELECT * FROM `orders` WHERE `id` = '$order_id'";
+        $list = pdo_query_one($sql);
+        return $list;
+
+    }
+
+    function show_detail($order_id){
+        $sql = "SELECT * FROM `order_items` JOIN `products` ON order_items.product_id = products.product_id WHERE `order_id` = '$order_id'";
+        $list = pdo_query($sql);
+        return $list;
+
+    }
+
+
+
+
+
+
+     
     
 
   

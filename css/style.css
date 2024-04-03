@@ -956,7 +956,7 @@ tr td.capnhat input:hover {
 }
 
 .box-bill {
-    max-width: 700px;
+    max-width: 1100px;
     margin: 0 auto;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -965,16 +965,18 @@ tr td.capnhat input:hover {
 .box-bill h3 {
     text-align: center;
     /* color: #ff6a28; */
+    margin-bottom:30px;
     /* border-radius: 5px; */
 }
 
-.table_order table {
+.bill_detail table {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 20px;
+    border: 1px solid #ddd;
 
 }
-.table_order table tr th {
+.bill_detail table tr th {
     min-width: 50%;
     text-align: center;
     color: #747474;
@@ -983,14 +985,14 @@ tr td.capnhat input:hover {
     font-size: 13px;
 }
 
-.table_order table tr td {
+.bill_detail table tr td {
     min-width: 50%;
     text-align: center;
     padding: 15px 0;
     border-bottom: 1px solid #ddd;
 }
 
-.table_order table .order_total tr td {
+.bill_detail table .order_total tr td {
     min-width: 50%;
     text-align: center;
     padding: 15px 0;
@@ -1006,6 +1008,66 @@ tr td.capnhat input:hover {
 .bill_detail {
     padding: 30px;
 }
+
+.tong {
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.tong .table-detail-bill table tr th {
+    min-width: 50%;
+    text-align: center;
+    color: #747474;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.tong .table-detail-bill table tr th {
+    min-width: 50%;
+    text-align: center;
+    color: #747474;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.tong .table-detail-bill table tr td {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #747474;
+    /* border-right: 1px solid #ddd; */
+}
+
+.box-detail-bill {
+    justify-content: space-between ;
+    display: flex;
+    padding: 0 50px 50px 50px;
+    max-width: 1000px;
+    align-items: center;
+    margin: 0 auto;
+}
+.box-detail-bill h1 {
+    color: #ff6a28;
+}
+.box-detail-bill label {
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+.box-detail-bill input {
+    border: 1px solid #ddd;
+    background: none;
+    height: 40px;
+    width: 100%;
+    padding: 0 20px;
+    color: #747474;
+}
+
 
 
 

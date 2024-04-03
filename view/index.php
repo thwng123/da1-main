@@ -56,19 +56,17 @@
 
                     $product_id = $_GET['product_id'];
                   
-                    if(!cartExsit($product_id)){
+                    if(!cartExsit($product_id, $user_id)){
                         add_cart($user_id, $product_id, $quantity,$status);
                     }else {
-                        echo "<script> alert('Sản phẩm đã tồn tại')</script>";
+                        echo "<script> alert('Sản phẩm đã tồn tại vui lòng cập nhật trong giỏ hàng')</script>";
                     }
                   
-                    // add_cart($user_id, $product_id, $quantity);
-                    // add_cart($user_id, $product_id, $quantity,$status);
-                    //  echo "thuong";
+                    
                 }
 
 
-                $user_id = $_SESSION['username']['user_id'];
+                // $user_id = $_SESSION['username']['user_id'];
                
                  $_SESSION['cart'] = list_cart($user_id);
                 
@@ -121,12 +119,12 @@
                     
                     $cart_id =$_GET['cart_id'];
                     del_cart($cart_id);
-                    echo '<script>window.location.href = "index.php?act=cart"</>';
+                    echo '<script>window.location.href = "index.php?act=cart";</script>';
 
                 }
                 $rows = list_cart("",0);
 
-                // include 'cart.php';
+                 include 'cart.php';
                 break;
                 
             
@@ -165,7 +163,8 @@
                     del_cart2($user_id);
                     unset($_SESSION['cart']);
                     
-                    echo '<script>window.location.href = "index.php?act=dathangthanhcong"</script>';
+                    // echo '<script>window.location.href = "index.php?act=dathangthanhcong"</script>';
+                    echo "<script>alert('Bạn đã mua hàng thành công đang chờ xử lý'); window.location.href = ' index.php?act=home';</script>";
                   
                 }
                
@@ -177,12 +176,12 @@
 
             case 'dathangthanhcong':
                
-                $_SESSION['bill1'] = showAll($user_id);
-                // echo '<pre>';
-                // print_r($_SESSION['bill1']);
-                // echo '</pre>';
-                // die;
-                $_SESSION['bill2'] = showAll2($user_id);
+                // $_SESSION['bill1'] = showAll($user_id);
+                // // echo '<pre>';
+                // // print_r($_SESSION['bill1']);
+                // // echo '</pre>';
+                // // die;
+                // $_SESSION['bill2'] = showAll2($user_id);
                 // echo '<pre>';
                 // print_r($_SESSION['bill2']);
                 // echo '</pre>';
@@ -190,6 +189,16 @@
                 // unset($_SESSION['bill1']);
                 // unset($_SESSION['bill2']);
                 include 'dathangthanhcong.php';
+                break;
+
+            case 'orderDetail':
+                if(isset($_GET['id']) && $_GET['id'] > 0 ){
+                    $order_id = $_GET['id'];
+                    $show_one = show_detail_order($order_id);
+                    extract($show_one);
+                }
+                
+                include 'orderDetail.php';
                 break;
                 
             
