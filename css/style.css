@@ -832,6 +832,7 @@ tr td.capnhat input:hover {
     color: #ffffff;
     background: #242424;
     font-weight: 600;
+   
 }
 
 .checkout_form .row {
@@ -862,9 +863,9 @@ tr td.capnhat input:hover {
     color: #ff6a28;
 }
 
-.checkout_form .col-lg-6 {
+/* .checkout_form .col-lg-6 {
     width: 50%;
-}
+} */
 
    
 .mb {
@@ -947,6 +948,65 @@ tr td.capnhat input:hover {
     background: #242424;
     
 }
+
+.order_success h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff6a28;
+}
+
+.box-bill {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.box-bill h3 {
+    text-align: center;
+    /* color: #ff6a28; */
+    /* border-radius: 5px; */
+}
+
+.table_order table {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+.table_order table tr th {
+    min-width: 50%;
+    text-align: center;
+    color: #747474;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.table_order table tr td {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.table_order table .order_total tr td {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #747474;
+}
+
+.info_bill {
+    margin-left: 50px;
+}
+
+.bill_detail {
+    padding: 30px;
+}
+
 
 
 

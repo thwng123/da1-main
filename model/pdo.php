@@ -8,7 +8,10 @@ function pdo_get_connection()
     $conn = new PDO($servername, $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $GLOBALS['conn'] = $conn;
     return $conn;
+
+    
 }
 
 function pdo_execute($sql)

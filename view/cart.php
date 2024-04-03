@@ -28,7 +28,7 @@
         
                 <?php
                 $total = 0;
-                foreach($list_cart as $lc){
+                foreach( $_SESSION['cart']  as $lc){
 
                     $total = $lc['quantity'] * $lc['price'];
                     $total_bill += $total;
@@ -54,7 +54,6 @@
                     
                         <input type="number" id="" min="1" name="soluong[]" value="<?= $lc['quantity'] ?>">
                         <input type="hidden" id="" name="product_id[]" value="<?= $lc['product_id'] ?>">
-                        
                     </td>
                     <td class="product_total">$<?= $total?></td>
                     
