@@ -68,6 +68,7 @@
     }
 
     function total_bill(){
+            $total_bill = 0;
         // $_SESSION['cart'] =  list_cart($user_id);
         if(isset($_SESSION['cart'])){
             $total = 0;
