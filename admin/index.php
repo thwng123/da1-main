@@ -5,6 +5,7 @@ include '../model/sanpham.php';
 include './header.php';
 include '../model/khachhang.php';
 include '../model/binhluan.php';
+include '../model/thongke.php';
 if(isset($_GET['act'])){
     $act=$_GET['act'];
    switch ($act) {
@@ -215,6 +216,18 @@ if(isset($_GET['act'])){
               $listsp=listsp($kyw,$iddm);
               $listdm=listdm();
                include './sanpham/list.php';
+               case 'listtk':
+               
+                $listtk = thong_ke_hang_hoa();
+
+                  include './thongke/list.php';
+                  break;
+               case 'listdh':
+               
+                // $listtk = thong_ke_hang_hoa();
+
+                  include './donhang/list.php';
+                  break;
                case 'listkh':
                
                 $listkh=listkh();

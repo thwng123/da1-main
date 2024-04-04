@@ -2,7 +2,7 @@
         <h1 class="d-flex justify-content-center ">Thống kê</h1>
         
         <div >
-          <button class="btn btn-success"><i class="fa-solid fa-plus" ></i><a href="index.php?act=addkh" style="color:white; text-decoration: none;">Tạo mới</a></button>
+          <!-- <button class="btn btn-success"><i class="fa-solid fa-plus" ></i><a href="index.php?act=addkh" style="color:white; text-decoration: none;">Tạo mới</a></button> -->
         </div>
         <table class="table table-hover table-bordered  mt-3 table-striped container ">
         
