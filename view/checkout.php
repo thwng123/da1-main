@@ -75,7 +75,8 @@
                         <!-- <a href="index.php?act=home" onclick="return !confirm('Đừng đi :))')" class="btn btn-warning">Quay lại trang chủ</a> -->
                         <div class="order_button">
                             
-                            <input type="submit" value="Thanh toán">
+                            <input type="submit" name="btn" value="Thanh toán">
+                            <input type="submit" name="redirect" value="Thanh toán VNPAY">
                         </div>
                     </div>
                 </div>

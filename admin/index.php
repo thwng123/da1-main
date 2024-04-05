@@ -1,4 +1,7 @@
 <?php
+
+
+
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
@@ -373,6 +376,7 @@ if(isset($_GET['act'])){
 }
 include './home.php';
 include './footer.php';
+
 
 
 ?>

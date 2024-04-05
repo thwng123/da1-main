@@ -23,6 +23,7 @@
                     <th>Receiver</th>
                     <th>Total</th>
                     <th>Status</th>
+                    <th>Payment</th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
 
                 // ($status_delivery === 0) ? $tinh_trang = "Đã xử lý" : $tinh_trang = "Đang xử lý";
                 $tinh_trang = ($status_delivery === 0) ?  "Đã xử lý" :  "Đang xử lý";
+                //  $payment = ($status_payment === 0) ?  "Đã thanh toán VNPAY" :  "Thanh toán COD";
                ?>
 
                     <tr>
@@ -44,6 +46,11 @@
                         <td><?=$user_name?></td>
                         <td>$<?=$total_bill?></td>
                         <td><?=$tinh_trang?></td>
+                        <td><?php if($status_payment==0){
+                            echo"Thanh toán khi nhận hàng";
+                        }else if($status_payment==1){
+                            echo "Đã thanh toán qua VNPAY";
+                        }?></td>
                         <td>
                             <a href="index.php?act=orderDetail&id=<?=$id?>"> Xem chi tiết</a>   
                         </td>
