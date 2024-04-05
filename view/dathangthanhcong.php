@@ -45,12 +45,26 @@
                         <td><?=$created_at?></td>
                         <td><?=$user_name?></td>
                         <td>$<?=$total_bill?></td>
-                        <td><?=$tinh_trang?></td>
-                        <td><?php if($status_payment==0){
-                            echo"Thanh toán khi nhận hàng";
-                        }else if($status_payment==1){
-                            echo "Đã thanh toán qua VNPAY";
-                        }?></td>
+                        <td>
+                            <?php if($status_delivery==0){ 
+                                echo"Đang chờ xác nhận";
+                                }else if($status_delivery==1){
+                                echo "Chờ lấy hàng";
+                                }else if($status_delivery==2){
+                                echo "Chờ giao hàng";
+                                }else if($status_delivery==3){
+                                    echo "Đã giao";
+                                }else if($status_delivery==-1){
+                                    echo "Đã huỷ";
+                                }?>
+                        </td>
+                        <td>
+                            <?php if($status_payment==0){
+                            echo"Thanh toán COD";
+                            }else if($status_payment==1){
+                            echo "Thanh toán VNPAY";
+                        }?>
+                        </td>
                         <td>
                             <a href="index.php?act=orderDetail&id=<?=$id?>"> Xem chi tiết</a>   
                         </td>

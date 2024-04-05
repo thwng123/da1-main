@@ -139,6 +139,12 @@
         return $list;
     }
 
+    function showAll2(){
+        $sql = "SELECT `id`, `user_id`, `user_name`, `user_email`, `user_phone`, `user_address`, `total_bill`, `status_delivery`, `status_payment`, `created_at`, `updated_at` FROM `orders` WHERE 1"  ;
+        $list = pdo_query($sql);
+        return $list;
+    }
+
     
 
     function cartExsit($product_id, $user_id){
@@ -159,6 +165,27 @@
         return $list;
 
     }
+
+    function updateOrder($user_name, $user_address, $user_email,$user_phone,$status_delivery,$status_payment,$id){
+        $sql = "UPDATE `orders` SET `user_name`='$user_name',
+                                `user_email`='$user_email',
+                                `user_phone`='$user_phone',
+                                `user_address`='$user_address',
+                                `status_delivery`='$status_delivery',
+                                `status_payment`='$status_payment' WHERE id = '$id'";
+        pdo_execute($sql);
+       
+
+    }
+
+    function delorder($id){
+        $sql = "DELETE FROM `order_items` WHERE `id` = '$id'";
+        pdo_execute($sql);
+       
+
+    }
+
+    
 
 
 

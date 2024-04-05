@@ -1,7 +1,6 @@
 <?php
 
 
-
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
@@ -9,6 +8,7 @@ include './header.php';
 include '../model/khachhang.php';
 include '../model/binhluan.php';
 include '../model/thongke.php';
+include '../model/cart.php';
 if(isset($_GET['act'])){
     $act=$_GET['act'];
    switch ($act) {
@@ -226,11 +226,60 @@ if(isset($_GET['act'])){
                   include './thongke/list.php';
                   break;
                case 'listdh':
-               
-                // $listtk = thong_ke_hang_hoa();
+                  $listdh = showAll2();
+                  // $listtk = thong_ke_hang_hoa();
 
                   include './donhang/list.php';
                   break;
+               case 'suadh':
+                  if(isset($_GET['id'])&&($_GET['id']>0)){
+                        $id = $_GET['id'];
+                    $dh=show_detail_order($id);
+                }
+                  include './donhang/update.php';
+                  break;
+                  case 'updatedh':
+                  
+                    if(isset($_POST['btnsumbit'])){
+                      $user_name=$_POST['user_name'];
+                      $user_address=$_POST['user_address'];
+                      $user_email=$_POST['user_email'];
+                    
+                      $user_phone=$_POST['user_phone'];
+                      // $total_bill=$_POST['total_bill'];
+                      $status_delivery=$_POST['status_delivery'];
+                      $status_payment=$_POST['status_payment'];
+                      $id = $_POST['id'];
+                   
+                      updateOrder($user_name, $user_address, $user_email, $user_phone,$status_delivery,$status_payment,$id);
+    
+                     // nếu mà hình bằng roongx thì thêm hinh vào
+                  
+                        // move_uploaded_file($anh['tmp_name'], '../image/' .$tenanh);
+                      
+                  }
+                  // echo"thnanh cong";
+                  
+                 $listdh=showAll2();
+                 include './donhang/list.php';
+                 break;
+
+                 case 'xoadh':
+       
+                  if(isset($_GET['id'])&&($_GET['id']>0)){
+                     $id = $_GET['id'];
+                     delorder($id);
+
+                   
+                    
+                 }
+                
+              
+                 $listdh = showAll2();
+                //  echo '<script>window.location.href = "index.php?act=cart"</script>';
+               
+    
+                include './donhang/list.php';
                case 'listkh':
                
                 $listkh=listkh();
@@ -346,6 +395,7 @@ if(isset($_GET['act'])){
        
             $listkh=listkh();
              include './khachhang/list.php';
+             break;
              case 'listbl':
               $listbl=listbladmin();
               include './binhluan/list.php';

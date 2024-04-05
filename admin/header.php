@@ -72,6 +72,9 @@
           <li class="nav-item fw-medium">
             <a class="nav-link"  href="index.php?act=listtk">THỐNG KÊ</a>
           </li>
+          <li class="nav-item fw-medium">
+            <a class="nav-link"  href="index.php?act=listdh">ĐƠN HÀNG</a>
+          </li>
         </ul>
       </div>
       </div>
