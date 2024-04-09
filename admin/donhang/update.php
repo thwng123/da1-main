@@ -83,22 +83,16 @@
                         
                         ?>
                   </select>
-                  <br><br>
-                  <span class="form-label">Hình thức thanh toán:</span>
-                  <select name="status_payment" id="">
-                    <?php
-                        if($status_payment==0){
-                        echo'<option  value="0">Thanh toán COD</option>
-                        <option value="1">Thanh toán VNPAY</option>';
-                        }else{
-                        echo'<option  value="1">Thanh toán VNPAY</option>
-                        <option value="0">Thanh toán COD</option>';
-                        }
-                        
-                        
-                        ?>
-                  </select>
-                  <br>
+                 <br>
+                
+                  
+                  <?php
+                       $method = ($status_payment === 1) ? "Thanh toán COD" : "Thanh toán VNPay";
+                  ?>
+                  <div class="mt-3">
+                   <span class="form-label">Hình thức thanh toán:</span>
+                    <input value="<?=$method?>" type="text" class="form-control" name="status_payment" disabled/>
+                  </div><br>
                   
                   <table border="1"  width="100%" >
                         <tr align="center" >

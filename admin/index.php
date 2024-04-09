@@ -397,24 +397,30 @@ if(isset($_GET['act'])){
              include './khachhang/list.php';
              break;
              case 'listbl':
-              $listbl=listbladmin();
+              $listbl= statistic_comment();
               include './binhluan/list.php';
+              break;
+
+             case 'detail_bl':
+              if(isset($_GET['product_id']) && $_GET['product_id'] > 0){
+                  $product_id = $_GET['product_id'];
+                  $show_detail = comment_select_by_product($product_id);
+              }
+              include './binhluan/detail_bl.php';
               break;
               case 'xoabl':
        
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                   deletebl();
-                 
-                 
-                 
+                  echo '<script>window.location.href = "index.php?act=listbl"</script>';
                   
                }
               
-            
-            $listbl=listbladmin();
+               $show_detail = comment_select_by_product($product_id);
              
   
-              include './binhluan/list.php';
+              include './binhluan/detail_bl.php';
+              break;
                 
 
                

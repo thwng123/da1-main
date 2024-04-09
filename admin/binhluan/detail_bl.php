@@ -8,13 +8,11 @@
         
           <thead>
             <tr>
-              <th>Sản phẩm</th>
-              <th >Số lượng</th>
-        
-           
-        
-              <th>Thời gian</th>
-           
+              <th>Mã</th>
+              <th>Nội dụng</th>
+              <th >Khách hàng</th>
+              <th >Sản phẩm</th>
+              <th >Ngày bình luận</th>
               <th>Tương tác</th>
             </tr>
           </thead>
@@ -23,28 +21,25 @@
          
             
             <?php
-            foreach($listbl as $item){
+            foreach($show_detail as $item){
               extract($item);
-             
-           
-             
+
               $xoabl="index.php?act=xoabl&id=".$comments_id;
 
-            
-            
-            
             ?>
             
                <tr>
+                <td><?=$comments_id?></td>
+                <td><?=$content?></td>
+                <td><?=$username?></td>
                 <td><?=$product_name?></td>
-                <td><?=$quantity?></td>
-                <td><?=$oldest_comment_date?></td>
+                <td><?=$date?></td>
                 
          
              
               <td>
                 <!-- <button class="btn btn-sm btn-danger " data-bs-toggle="modal" data-bs-target="#myModal"> -->
-                <a href="index.php?act=detail_bl&product_id=<?=$product_id?>"> Xem chi tiết</a>
+                  <a href="index.php?act=xoabl&id=<?=$comments_id?>"> Xoá</a>
                
               </td>
             </tr>

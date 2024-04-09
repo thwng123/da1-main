@@ -119,9 +119,9 @@ session_start();
                         $comment=$_POST['comment'];
                         $idpro=$_POST['idpro'];
                         $iduser=$_POST['iduser'];
-                        // $ngaybinhluan=date('h:i:sa d/m/Y');
-                        $sql="INSERT INTO `comments`( `content`, `product_id`, `user_id`) VALUES
-                         ('$comment','$idpro','$iduser')";
+                        $ngaybinhluan = date('h:i:sa d/m/Y');
+                        $sql="INSERT INTO `comments`( `content`, `product_id`, `user_id`,`date`) VALUES
+                         ('$comment','$idpro','$iduser',' $ngaybinhluan')";
                           pdo_execute($sql);
                         header("Location:" .$_SERVER['HTTP_REFERER']);
                        
