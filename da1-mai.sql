@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th4 10, 2024 lúc 10:51 AM
+-- Thời gian đã tạo: Th4 11, 2024 lúc 08:02 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -56,16 +56,9 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `status` tinyint(1) DEFAULT NULL
+  `status` tinyint(1) DEFAULT NULL,
+  `size` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `cart`
---
-
-INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `status`) VALUES
-(178, 49, 6, 1, 0),
-(179, 49, 11, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -154,16 +147,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `user_name`, `user_email`, `user_phone`, `user_address`, `total_bill`, `status_delivery`, `status_payment`, `created_at`, `updated_at`) VALUES
-(56, 49, 'thwngpro12', 'thuonghihi88@gmail.com', '0335594204', 'Bac Ninh', 78.77, 0, 0, '2024-04-03 23:00:14', '2024-04-03 23:00:14'),
-(57, 50, 'thuonghihe', 'tuong@gmail.com', '0123456789', 'LAo cai', 119.81, 3, 0, '2024-04-03 23:23:16', '2024-04-03 23:23:16'),
-(58, 49, 'thwngpro12', 'thuonghihi88@gmail.com', '335594204', 'Bắc Ninh', 152.18, 0, 0, '2024-04-04 13:17:54', '2024-04-04 13:17:54'),
-(59, 50, 'thwngpro12', 'thuonghihi88@gmail.com', '0335594204', 'Bâc Ninh', 64.46, 1, 1, '2024-04-04 13:35:59', '2024-04-04 13:35:59'),
-(60, 50, 'thuong', ' thuong@gamil.com	', '120932', 'ASD', 25.4, 0, 0, '2024-04-04 13:36:36', '2024-04-04 13:36:36'),
-(61, 50, 'thuonghihe', 'tuong@gmail.com', '0123456789', 'LAo cai', 25.4, 0, 1, '2024-04-04 13:36:57', '2024-04-04 13:36:57'),
-(62, 50, 'thuong', ' thuong@gamil.com	', '0120932', 'Bắc Ninh', 55.94, 0, 1, '2024-04-04 21:33:14', '2024-04-04 21:33:14'),
-(63, 50, 'thwngpro12', 'thuonghihi88@gmail.com', '335594204', 'Bắc Nin', 79.67, 1, 0, '2024-04-04 21:38:16', '2024-04-04 21:38:16'),
-(64, 49, 'thwngpro123', 'thuonghihi88@gmail.com', '0335594204', 'Bắc Ninh', 25.4, 1, 1, '2024-04-04 21:47:36', '2024-04-04 21:47:36'),
-(65, 49, 'thwngpro12', 'thuonghihi88@gmail.com', '0335594204', 'Bắc Ninh', 187.64, 0, 1, '2024-04-04 21:49:14', '2024-04-04 21:49:14');
+(66, 49, 'thwngpro12', 'thuonghihi88@gmail.com', '335594204', 'Bắc Ninh', 68.07, 0, 0, '2024-04-11 10:45:45', '2024-04-11 10:45:45'),
+(67, 49, 'thwngpro12', 'thuonghihi88@gmail.com', '0335594204', 'Bắc Ninh', 109.08, 0, 1, '2024-04-11 10:53:13', '2024-04-11 10:53:13');
 
 -- --------------------------------------------------------
 
@@ -176,29 +161,18 @@ CREATE TABLE `order_items` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` float NOT NULL COMMENT 'ưu tiên lưu giá price hơn regular.'
+  `price` float NOT NULL COMMENT 'ưu tiên lưu giá price hơn regular.',
+  `size` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `order_items`
 --
 
-INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(58, 56, 9, 1, 27.97),
-(59, 56, 4, 2, 25.4),
-(60, 57, 17, 3, 25.85),
-(61, 57, 11, 1, 42.26),
-(62, 58, 4, 1, 25.4),
-(63, 58, 11, 3, 42.26),
-(64, 59, 4, 1, 25.4),
-(65, 59, 6, 1, 39.06),
-(66, 60, 4, 1, 25.4),
-(67, 61, 4, 1, 25.4),
-(68, 62, 9, 2, 27.97),
-(69, 63, 17, 2, 25.85),
-(70, 63, 9, 1, 27.97),
-(71, 64, 4, 1, 25.4),
-(72, 65, 9, 2, 27.97);
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `size`) VALUES
+(74, 66, 10, 2, 20.05, 'M'),
+(75, 66, 9, 1, 27.97, 'L'),
+(76, 67, 20, 2, 54.54, 'S');
 
 -- --------------------------------------------------------
 
@@ -377,7 +351,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -401,13 +375,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
