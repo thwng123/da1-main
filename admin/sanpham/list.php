@@ -63,7 +63,7 @@
                 <td><?=$price?></td>
                 <td><?=$hinh?></td>
                 <td><?=$description?></td>
-                <td><?=$quantity?></td>
+                <td><?=$quantitys?></td>
                 <td><?=$cate_id?></td>
               
               <td>

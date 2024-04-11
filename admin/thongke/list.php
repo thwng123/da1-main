@@ -25,20 +25,6 @@
             foreach($listtk as $item){
               extract($item);
              
-            
-            $hinhkh="../image/" .$image;
-            if(is_file($hinhkh)){
-                $hinh="<img src=".$hinhkh." height=80 width=80> ";
-
-            }else{
-                $hinh="không có ảnh được chọn";
-            }
-              $suakh="index.php?act=suakh&id=".$user_id;
-              $xoakh="index.php?act=xoakh&id=".$user_id;
-
-            
-            
-            
             ?>
             
                <tr>

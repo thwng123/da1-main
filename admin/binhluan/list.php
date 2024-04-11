@@ -28,7 +28,7 @@
              
            
              
-              $xoabl="index.php?act=xoabl&id=".$comments_id;
+          
 
             
             
