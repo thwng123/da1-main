@@ -51,15 +51,17 @@
             case 'addcart':
                 $user_id = $_SESSION['username']['user_id'];
                 if(isset($_GET['product_id'])){
-                    $quantity = 0;
-                    $status = 0;
+                    $quantity = 1;
+                    $sizeName = $_POST['size_name'];
 
                     $product_id = $_GET['product_id'];
                   
-                    if(!cartExsit($product_id, $user_id)){
-                        add_cart($user_id, $product_id, $quantity,$status);
+                    if(cartExsit($product_id, $user_id, $sizeName)){
+                        $quantity += get_quantity_product_in_cart($user_id, $product_id , $sizeName);
+                        // add_cart($user_id, $product_id, $quantity,$status);
+                        update_cart($product_id,$quantity,$user_id,$sizeName);
                     }else {
-                        echo "<script> alert('Sản phẩm đã tồn tại vui lòng cập nhật trong giỏ hàng')</script>";
+                        add_cart($user_id, $product_id, $quantity, $sizeName);
                     }
                   
                     
@@ -149,12 +151,13 @@
                     
                     
                     foreach($_SESSION['cart'] as $productID => $lc){
+                        $size = $lc['size'];
                         $orderID = $orderId;
                         $product_id = $lc['product_id'];
                         $quantity = $lc['quantity'];
                         $price = $lc['price'];
 
-                        insertOrderItem($orderID, $product_id, $quantity, $price);
+                        insertOrderItem($orderID, $product_id, $quantity, $price, $size);
 
                     }
                   
@@ -262,12 +265,13 @@
                  
                  
                  foreach($_SESSION['cart'] as $productID => $lc){
+                     $size = $lc['size'];
                      $orderID = $orderId;
                      $product_id = $lc['product_id'];
                      $quantity = $lc['quantity'];
                      $price = $lc['price'];
 
-                     insertOrderItem($orderID, $product_id, $quantity, $price);
+                     insertOrderItem($orderID, $product_id, $quantity, $price, $size);
 
                  }
                

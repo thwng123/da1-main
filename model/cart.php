@@ -4,9 +4,9 @@
     //     pdo_execute($sql);
     // //    echo $sql;  
     // }
-    function add_cart($user_id, $product_id, $quantity,$status){
+    function add_cart($user_id, $product_id, $quantity, $sizeName){
        
-        $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `quantity`,`status`) VALUES ('$user_id','$product_id',1,0)";
+        $sql = "INSERT INTO `cart`(`user_id`, `product_id`, `quantity`,`size`) VALUES ('$user_id','$product_id','$quantity','$sizeName')";
         pdo_execute($sql);
     //    echo $sql;  
     }
@@ -20,10 +20,10 @@
     
     
     function list_cart($user_id){
-        $sql = "SELECT `cart_id`, U.`user_id`, p.`product_id`,p.product_name,p.price,p.image,c.quantity FROM `cart` C
+        $sql = "SELECT `cart_id`, U.`user_id`, p.`product_id`,p.product_name,p.price,p.image,c.quantity,c.size FROM `cart` C
                  inner join `user` U on U.user_id = C.user_id 
                 inner join `products` P on P.product_id = C.product_id
-                where U.user_id ='$user_id' and `status` = '0'";
+                where U.user_id ='$user_id'";
         return pdo_query($sql);
     }
 
@@ -60,12 +60,24 @@
 
     function capnhatCart($product_id,$quantity){
        
-        $sql = "UPDATE `cart` SET `quantity`= '$quantity' WHERE product_id = '$product_id'";
+        $sql = "UPDATE `cart` SET `quantity`= '$quantity' WHERE product_id = '$product_id'  ";
            
         pdo_execute($sql);
         // echo $sql;
         
     }
+
+    function update_cart($product_id,$quantity,$user_id,$sizeName){
+       
+        $sql = "UPDATE `cart` SET `quantity`= '$quantity' WHERE product_id= '$product_id'
+        
+         AND `user_id` = '$user_id' AND `size` = '$sizeName';";
+        
+        pdo_execute($sql);
+        // echo $sql;
+        
+    }
+    
 
     function total_bill(){
             $total_bill = 0;
@@ -96,8 +108,8 @@
     //      pdo_execute($sql);
     // }
     
-    function insertOrderItem($orderID, $product_id, $quantity, $price) {
-        $sql = "INSERT INTO `order_items`( `order_id`, `product_id`, `quantity`, `price`) VALUES ('$orderID','$product_id','$quantity','$price')";
+    function insertOrderItem($orderID, $product_id, $quantity, $price, $size) {
+        $sql = "INSERT INTO `order_items`( `order_id`, `product_id`, `quantity`, `price`, `size`) VALUES ('$orderID','$product_id','$quantity','$price','$size')";
          pdo_execute($sql);
     }
 
@@ -147,8 +159,8 @@
 
     
 
-    function cartExsit($product_id, $user_id){
-        $sql = "SELECT * FROM `cart`  where `product_id` = '$product_id' and `user_id` = '$user_id'";
+    function cartExsit($product_id, $user_id, $sizeName){
+        $sql = "SELECT * FROM `cart`  where `product_id` = '$product_id' and `user_id` = '$user_id' and `size` = '$sizeName'";
         return  pdo_query_value($sql) > 0;
     }
 
@@ -184,6 +196,18 @@
        
 
     }
+
+    function get_quantity_product_in_cart($user_id, $product_id , $sizeName)
+{
+    $sql = "SELECT `quantity` FROM cart
+            WHERE `user_id` = :user_id AND `product_id` = :product_id AND `size` = :size" ;
+
+    return (bool) pdo_query_value($sql, [
+        ':user_id' => $user_id,
+        ':product_id' => $product_id,
+        ':size' => $sizeName,
+    ]);
+}
 
     
 

@@ -23,6 +23,7 @@
             <th>Xoá</th>
             <th>Hình ảnh</th>
             <th>Sản phẩm</th>
+            <th>Size</th>
             <th>Giá</th>
             <th>Số lượng</th>
             <th>Tổng</th>
@@ -56,6 +57,7 @@
                     
                     </td>
                     <td class="product_name"><?= $lc['product_name']?></td>
+                    <td class="product_quantity"><?= $lc['size']?></td>
                     <td class="pro-price">$<?= $lc['price']?></td>
                     <td class="product_quantity">
                         <!-- <input type="number" name="soluong[]" min="1" value="1" id=""> -->
@@ -74,10 +76,10 @@
                 }
                 ?>
                 <tr>
-                    <td colspan=6 style="text-align:right;" class="capnhat" ><input  style="background: #242424;border: 0;color: #ffffff;display: inline-block;font-size: 12px;font-weight: 600;height: 38px;line-height: 18px;padding: 10px 15px;text-transform: uppercase;cursor: pointer;-webkit-transition: 0.3s;transition: 0.3s;" type="submit" value="Cập nhật giỏ hàng" name="capnhatsoluong"></td>
+                    <td colspan=7 style="text-align:right;" class="capnhat" ><input  style="background: #242424;border: 0;color: #ffffff;display: inline-block;font-size: 12px;font-weight: 600;height: 38px;line-height: 18px;padding: 10px 15px;text-transform: uppercase;cursor: pointer;-webkit-transition: 0.3s;transition: 0.3s;" type="submit" value="Cập nhật giỏ hàng" name="capnhatsoluong"></td>
                 </tr>
                 <tr>
-                    <td colspan=6 style="text-align:center;" class="pro-price" >
+                    <td colspan=7 style="text-align:center;" class="pro-price" >
                         <div class="total_bill">
                             Tổng giỏ hàng: $<?php echo $total_bill?>
                         </div>

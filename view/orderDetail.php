@@ -33,6 +33,7 @@
 
             <tr>
                 <th>Tên sản phẩm</th>
+                <th>Size</th>
                 <th>Ảnh</th>
                 <th>Giá</th>
                 <th>Số lượng</th>
@@ -50,9 +51,10 @@
             ?>
                 <tr>
                     <td><?=$product_name?></td>
+                    <td><?=$size?></td>
                     <td><img src="../image/<?= $item['image']?>" alt="" width="150px" height="150px"></td>
-                    <td>$<?=$price?></td>
                     <td><?=$quantity?></td>
+                    <td>$<?=$price?></td>
                     <td>$<?=$price * $quantity?></td>
                 </tr>
                 

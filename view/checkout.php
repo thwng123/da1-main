@@ -37,6 +37,7 @@
                             <thead>
                                 <tr>
                                     <th>Sản phẩm</th>
+                                    <th>Size</th>
                                     <th>Tổng cộng</th>
                                 </tr>
                             </thead>
@@ -51,6 +52,7 @@
 
                                     <tr>
                                         <td> <?= $lc['product_name']?> <strong> × <?php echo $lc['quantity']?></strong></td>
+                                        <td><?= $lc['size']?></td>
                                         <td>$<?php echo $total?></td>
                                     </tr>
                                    
@@ -65,6 +67,7 @@
                                
                                      <tr class="order_total">
                                         <th>Order Total</th>
+                                        <th></th>
                                         <td><strong name="total_bill" >$<?php echo $total_bill?></strong></td>
                                     </tr>
 
