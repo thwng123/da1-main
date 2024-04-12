@@ -311,8 +311,6 @@
                   
                      
 
-                     
-                     // vui lòng tham khảo thêm tại code demo
              }
                
                 // echo '<script>window.location.href = "index.php?act=home"</script>';

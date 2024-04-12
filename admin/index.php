@@ -221,7 +221,7 @@ if(isset($_GET['act'])){
                include './sanpham/list.php';
                case 'listtk':
                
-                $listtk = thong_ke_hang_hoa();
+                // $listtk = thong_ke_hang_hoa();
 
                   include './thongke/list.php';
                   break;
@@ -241,17 +241,18 @@ if(isset($_GET['act'])){
                   case 'updatedh':
                   
                     if(isset($_POST['btnsumbit'])){
-                      $user_name=$_POST['user_name'];
-                      $user_address=$_POST['user_address'];
-                      $user_email=$_POST['user_email'];
+                      // $user_name=$_POST['user_name'];
+                      // $user_address=$_POST['user_address'];
+                      // $user_email=$_POST['user_email'];
                     
-                      $user_phone=$_POST['user_phone'];
+                      // $user_phone=$_POST['user_phone'];
                       // $total_bill=$_POST['total_bill'];
-                      $status_delivery=$_POST['status_delivery'];
-                      $status_payment=$_POST['status_payment'];
+                      $status_delivery = $_POST['status_delivery'];
+                      // $status_payment = $_POST['status_payment'];
                       $id = $_POST['id'];
                    
-                      updateOrder($user_name, $user_address, $user_email, $user_phone,$status_delivery,$status_payment,$id);
+                      // updateOrder($user_name, $user_address, $user_email, $user_phone,$status_delivery,$status_payment,$id);
+                      updateOrder($status_delivery,$id);
     
                      // nếu mà hình bằng roongx thì thêm hinh vào
                   
@@ -260,7 +261,7 @@ if(isset($_GET['act'])){
                   }
                   // echo"thnanh cong";
                   
-                 $listdh=showAll2();
+                 $listdh=showAll2();  
                  include './donhang/list.php';
                  break;
 

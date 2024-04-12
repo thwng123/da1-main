@@ -18,29 +18,29 @@
                   <div class="mt-3">
                   
                    <span class="form-label">Tên người đặt</span>
-                    <input value="<?=$user_name?>" type="text" class="form-control" name="user_name"/>
+                    <input value="<?=$user_name?>" type="text" class="form-control" name="user_name" disabled/>
                 
                   </div>
                   <div class="mt-3">
                   
                    <span class="form-label">Địa chỉ</span>
-                    <input value="<?=$user_address?>" type="text" class="form-control" name="user_address"/>
+                    <input value="<?=$user_address?>" type="text" class="form-control" name="user_address" disabled/>
                 
                   </div>
                   <div class="mt-3">
                   
                    <span class="form-label">Email</span>
-                    <input value="<?=$user_email?>" type="text" class="form-control" name="user_email"/>
+                    <input value="<?=$user_email?>" type="text" class="form-control" name="user_email" disabled/>
                 
                   </div>
                   <div class="mt-3">
                    <span class="form-label">Phone</span>
-                    <input value="<?=$user_phone?>" type="text" class="form-control" name="user_phone"/>
+                    <input value="<?=$user_phone?>" type="text" class="form-control" name="user_phone" disabled/>
                 
                   </div>
                   <div class="mt-3">
                    <span class="form-label">Tổng giá</span>
-                    <input value="<?=$total_bill?>" type="text" class="form-control" name="total_bill"/>
+                    <input value="<?=$total_bill?>" type="text" class="form-control" name="total_bill" disabled/>
                   </div><br>
                   <span class="form-label">Tình trạng:</span>
                   <select name="status_delivery" id="">

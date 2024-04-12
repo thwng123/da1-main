@@ -178,14 +178,25 @@
 
     }
 
-    function updateOrder($user_name, $user_address, $user_email,$user_phone,$status_delivery,$status_payment,$id){
-        $sql = "UPDATE `orders` SET `user_name`='$user_name',
-                                `user_email`='$user_email',
-                                `user_phone`='$user_phone',
-                                `user_address`='$user_address',
-                                `status_delivery`='$status_delivery',
-                                `status_payment`='$status_payment' WHERE id = '$id'";
+    // function updateOrder($user_name, $user_address, $user_email,$user_phone,$status_delivery,$status_payment,$id){
+    //     $sql = "UPDATE `orders` SET `user_name`='$user_name',
+    //                             `user_email`='$user_email',
+    //                             `user_phone`='$user_phone',
+    //                             `user_address`='$user_address',
+    //                             `status_delivery`='$status_delivery',
+    //                             `status_payment`='$status_payment' WHERE id = '$id'";
+    //     pdo_execute($sql);
+
+    //     // echo $sql;
+       
+
+    // }
+
+    function updateOrder($status_delivery,$id){
+        $sql = "UPDATE `orders` SET `status_delivery`='$status_delivery' WHERE id = '$id'";
         pdo_execute($sql);
+
+        // echo $sql;
        
 
     }
